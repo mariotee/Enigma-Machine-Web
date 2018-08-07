@@ -1,2 +1,2 @@
-import Component from './component.js';
+import Component from './rotors.js';
 export default Component;
