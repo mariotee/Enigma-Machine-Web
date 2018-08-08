@@ -1,0 +1,31 @@
+import React from 'react';
+import MenuItem from '@material-ui/core/MenuItem';
+
+export default [
+  <MenuItem key={0} value={1}>{'A'}</MenuItem>,
+  <MenuItem key={1} value={2}>{'B'}</MenuItem>,
+  <MenuItem key={2} value={3}>{'C'}</MenuItem>,
+  <MenuItem key={3} value={4}>{'D'}</MenuItem>,
+  <MenuItem key={4} value={5}>{'E'}</MenuItem>,
+  <MenuItem key={5} value={6}>{'F'}</MenuItem>,
+  <MenuItem key={6} value={7}>{'G'}</MenuItem>,
+  <MenuItem key={7} value={8}>{'H'}</MenuItem>,
+  <MenuItem key={8} value={9}>{'I'}</MenuItem>,
+  <MenuItem key={9} value={10}>{'J'}</MenuItem>,
+  <MenuItem key={10} value={11}>{'K'}</MenuItem>,
+  <MenuItem key={11} value={12}>{'L'}</MenuItem>,
+  <MenuItem key={12} value={13}>{'M'}</MenuItem>,
+  <MenuItem key={13} value={14}>{'N'}</MenuItem>,
+  <MenuItem key={14} value={15}>{'O'}</MenuItem>,
+  <MenuItem key={15} value={16}>{'P'}</MenuItem>,
+  <MenuItem key={16} value={17}>{'Q'}</MenuItem>,
+  <MenuItem key={17} value={18}>{'R'}</MenuItem>,
+  <MenuItem key={18} value={19}>{'S'}</MenuItem>,
+  <MenuItem key={19} value={20}>{'T'}</MenuItem>,
+  <MenuItem key={20} value={21}>{'U'}</MenuItem>,
+  <MenuItem key={21} value={22}>{'V'}</MenuItem>,
+  <MenuItem key={22} value={23}>{'W'}</MenuItem>,
+  <MenuItem key={23} value={24}>{'X'}</MenuItem>,
+  <MenuItem key={24} value={25}>{'Y'}</MenuItem>,
+  <MenuItem key={25} value={26}>{'Z'}</MenuItem>,
+]
