@@ -2,6 +2,9 @@ import PropTypes from 'prop-types';
 
 import Rotor from './Rotor';
 
+const ASCII = 97;
+const ALPHA = 26;
+
 const reflektorA = {
   'a':'y', 'b':'r', 'c':'u', 'd':'h', 'e':'q', 'f':'s', 'g':'l',
   'h':'d', 'i':'p', 'j':'x', 'k':'n', 'l':'g', 'm':'o', 'n':'k',
@@ -44,29 +47,81 @@ export default class Enigma
   }
 
   write( message ) {
-    // let encoded = message.toLowerCase().split('');
+    let encoded = message.toLowerCase().split('');
 
-    // for( let char of encoded ) {
-    //   let rotorFlag1 = false;
-    //   let rotorFlag2 = false;
+    for( let index in encoded ) {
+      let rotorFlag1 = false;
+      let rotorFlag2 = false;
+      const rotor3Turn = this.rotor3.getTurnover();
+      const r3currentChar = String.fromCharCode(this.rotor3.getCurrentPosition() + ASCII);
+      const rotor2Turn = this.rotor2.getTurnover();
+      const r2currentChar = String.fromCharCode(this.rotor2.getCurrentPosition() + ASCII);
 
-    //   if( this.rotor3.getTurnover() === rotor3.getCurrentPosition) {
-    //     rotorFlag1 = true;
-    //   }
-    //   let input = char;
-    //   if( input === ' ') {
-        
-    //   }
-    // }
+      if( rotor3Turn === r3currentChar ) {
+        rotorFlag1 = true;
+      }
 
-    return message;
+      let input = encoded[index];
+      const regexp = /^[a-z]+$/;
+      
+      if( regexp.test(input) ) {
+        //initial swap
+        input = this.plugboard[input] ? this.plugboard[input] : input;
+        //forward
+        input = this.__writeRotorForward(this.rotor3,input);
+        input = this.__writeRotorForward(this.rotor2,input);
+        input = this.__writeRotorForward(this.rotor1,input);
+        //reflektor
+        input = this.reflektor[input];
+        //backward
+        input = this.__writeRotorReverse(this.rotor1,input);
+        input = this.__writeRotorReverse(this.rotor2,input);
+        input = this.__writeRotorReverse(this.rotor3,input);
+        //final swap
+        input = this.plugboard[input] ? this.plugboard[input] : input;
+        //write
+        encoded[index] = input;
+        //rotor step
+        this.rotor3.rotorStep();
+        if( rotorFlag1 ) {
+            this.rotor2.rotorStep();
+        }
+        //check for double step
+        if( this.rotor2.getTurnover() == this.rotor2.getCurrentPosition() ) {
+            rotorFlag2 = true;
+        }
+        if(rotorFlag2) {
+            this.rotor1.rotorStep();
+        }
+      }
+    }
+
+    return encoded.join('');
   }
 
   __writeRotorForward( rotor, char ) {
-
+    const position = rotor.getCurrentPosition();
+    const codeIndex = char.charCodeAt(0);
+    const index = (codeIndex - ASCII + position) % ALPHA;
+    let output = rotor.getChar(index).charCodeAt(0);
+    output = (output - position < ASCII)
+      ? output - (position - ALPHA) 
+      : output - position;
+    
+    return String.fromCharCode(output);
   }
 
   __writeRotorReverse( rotor, char ) {
+    const position = rotor.getCurrentPosition();
+    const codeIndex = char.charCodeAt(0);
+    const newChar = ((codeIndex + position) > (ASCII - 1 + ALPHA))
+      ? String.fromCharCode(codeIndex + (position - ALPHA)) 
+      : String.fromCharCode(codeIndex + position);
+    const index = rotor.findIndex(newChar);
+    let output = (index - position < 0 ) 
+      ? index - (position - ALPHA) + ASCII 
+      : index - position + ASCII;
 
+    return String.fromCharCode(output);
   }
 }

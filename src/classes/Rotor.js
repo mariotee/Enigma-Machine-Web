@@ -33,10 +33,12 @@ export default class Rotor
   
   getTurnover() { return this.turnover }
   
-  getChar(num) { return this.letters[num] }
+  getChar( index ) {
+    return this.letters[index] 
+  }
 
   rotorStep() {
-    ++this.position; 
+    ++this.position;
     if( this.position > 25 ) {
       this.position = 0;
     }
