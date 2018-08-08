@@ -1,5 +1,6 @@
 {
   "name": "enigma-web",
+  "author": "Mario Torres",
   "version": "0.1.0",
   "homepage": "https://mariotee.github.io/Enigma-Machine-Web",
   "private": true,
@@ -15,7 +16,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "predeploy": "npm run build",
+    "predeploy": "yarn build",
     "deploy": "gh-pages -d build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
