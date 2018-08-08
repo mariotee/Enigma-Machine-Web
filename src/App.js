@@ -36,8 +36,12 @@ class App extends React.Component {
   }
 
   render() {
-    const {menu1,menu2,menu3,start1,start2,start3,reflektor} = this.state;
-    const crypto = new Enigma(menu1,menu2,menu3,start1,start2,start3,reflektor,plugboard);
+    const { menu1,menu2,menu3,
+      start1,start2,start3,
+      reflektor } = this.state;
+    const crypto = new Enigma(menu1,menu2,menu3,
+      start1,start2,start3,
+      reflektor,plugboard);
 
     return (
       <div className="App">
@@ -74,13 +78,18 @@ class App extends React.Component {
           <Grid item xs={12}>
             <p className="App-directions">
             Now try copying the encrypted message and paste it anywhere to send it to a friend.
-            They can use this same web app to decrypt the message.<br/>
-            <b>Important: </b>Be sure to tell them the settings you used.
+            This same web app can be used to decrypt the message by copy/pasting the sent message
+            into the first box.<br/>
+            <b>Important: </b>Be sure to also share the exact same settings you used.<br/>
+            <i>example: <br/>
+            3 1 3 <br/>
+            D A G <br/>
+            UKW-B</i>
             </p>
           </Grid>
         </Grid>
       </div>
-    );
+    )
   }
 }
 

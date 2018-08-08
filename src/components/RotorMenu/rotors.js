@@ -10,7 +10,7 @@ function RotorMenu({ classes, ...props }) {
   return(
     <Grid container>
       <Grid item xs={4}>
-        <InputLabel>{'Rotor I'}</InputLabel>
+        <InputLabel>{'Rotor 1'}</InputLabel>
         <Select
           className={classes.select}
           name="menu1"
@@ -21,7 +21,7 @@ function RotorMenu({ classes, ...props }) {
         </Select>
       </Grid>
       <Grid item xs={4}>
-        <InputLabel>{'Rotor II'}</InputLabel>
+        <InputLabel>{'Rotor 2'}</InputLabel>
         <Select
           className={classes.select}
           name="menu2"
@@ -32,7 +32,7 @@ function RotorMenu({ classes, ...props }) {
         </Select>
       </Grid>
       <Grid item xs={4}>
-        <InputLabel>{'Rotor III'}</InputLabel>
+        <InputLabel>{'Rotor 3'}</InputLabel>
         <Select
           className={classes.select}
           name="menu3"
@@ -44,7 +44,7 @@ function RotorMenu({ classes, ...props }) {
       </Grid>
       <br/>
       <Grid item xs={4}>
-        <InputLabel>{'Start I'}</InputLabel>
+        <InputLabel>{'Start 1'}</InputLabel>
         <Select
           className={classes.select}
           name="start1"
@@ -55,7 +55,7 @@ function RotorMenu({ classes, ...props }) {
         </Select>
       </Grid>
       <Grid item xs={4}>
-        <InputLabel>{'Start II'}</InputLabel>
+        <InputLabel>{'Start 2'}</InputLabel>
         <Select
           className={classes.select}
           name="start2"
@@ -66,7 +66,7 @@ function RotorMenu({ classes, ...props }) {
         </Select>
       </Grid>
       <Grid item xs={4}>
-        <InputLabel>{'Start III'}</InputLabel>
+        <InputLabel>{'Start 3'}</InputLabel>
         <Select
           className={classes.select}
           name="start3"

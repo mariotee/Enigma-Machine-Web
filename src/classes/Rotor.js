@@ -12,39 +12,39 @@ const wiring5 = ['v', 'z', 'b', 'r', 'g', 'i', 't', 'y', 'u', 'p', 's', 'd', 'n'
 export default class Rotor
 {
   constructor(wiring,start) {
-    this.position = start;
+    this.__position = start;
     switch(wiring) {
-      case 1: this.letters = wiring1; this.turnover = 'q';
+      case 1: this.__letters = wiring1; this.__turnover = 'q';
         break;
-      case 2: this.letters = wiring2; this.turnover = 'e';
+      case 2: this.__letters = wiring2; this.__turnover = 'e';
         break;
-      case 3: this.letters = wiring3; this.turnover = 'v';
+      case 3: this.__letters = wiring3; this.__turnover = 'v';
         break;
-      case 4: this.letters = wiring4; this.turnover = 'j';
+      case 4: this.__letters = wiring4; this.__turnover = 'j';
         break;
-      case 5: this.letters = wiring5; this.turnover = 'z';
+      case 5: this.__letters = wiring5; this.turnover = 'z';
         break;
       default: console.log('error invalid input. using default mapping.');
-        this.letters = wiring1;
+        this.__letters = wiring1;
     }
   }
 
-  getCurrentPosition() { return this.position }
+  getCurrentPosition() { return this.__position }
   
-  getTurnover() { return this.turnover }
+  getTurnover() { return this.__turnover }
   
   getChar( index ) {
-    return this.letters[index] 
-  }
-
-  rotorStep() {
-    ++this.position;
-    if( this.position > 25 ) {
-      this.position = 0;
-    }
+    return this.__letters[index] 
   }
 
   findIndex( char ) {
-    return this.letters.indexOf(char);
+    return this.__letters.indexOf(char);
+  }
+
+  rotorStep() {
+    ++this.__position;
+    if( this.__position > 25 ) {
+      this.__position = 0;
+    }
   }
 }
