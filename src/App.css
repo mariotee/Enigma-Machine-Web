@@ -5,22 +5,26 @@
 .App-header {
   background-color: #333333;
   height: 88px;
-  padding: 2% 0;
+  padding: 8px 0;
   color: #fefefe;
+}
+
+.App-content {
+  padding: 0 15%;
 }
 
 .App-input {
   resize: none;
-  margin: auto 16px;
-  width: 85%;
   border: 4px groove #666666;
   background-color: #fefefe;
+  width: 85%;
+  font-size: 16px;
 }
 
 .App-input-header {
-  margin: 8px auto;
+  margin: 16px auto 8px auto;
 }
 
 .App-directions {
-  padding: 16px 25%;
+  padding: 16px 24px;
 }

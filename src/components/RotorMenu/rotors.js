@@ -79,7 +79,7 @@ function RotorMenu({ classes, ...props }) {
       <Grid item xs={12}>
         <InputLabel>{'Reflektor'}</InputLabel>
         <Select
-          className={classes.select}
+          className={classes.reflektor}
           name="reflektor"
           value={props.reflektor}
           onChange={event=>props.onChoiceChange(event.target.name,event.target.value)}

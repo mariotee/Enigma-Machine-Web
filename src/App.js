@@ -48,46 +48,45 @@ class App extends React.Component {
         <header className="App-header">
           <h1 className="App-title">Enigma M3 Web</h1>
         </header>
-        <h2>Settings</h2>
-        <Grid container>
-          <Grid item xs={12}>
-            <RotorMenu
-              choice1={menu1} choice2={menu2} choice3={menu3}
-              start1={start1} start2={start2} start3={start3}
-              reflektor={reflektor}
-              onChoiceChange={this.choiceChange}
-            />
+        <div className="App-content">
+          <h2>Settings</h2>
+          <Grid container>
+            <Grid item xs={12}>
+              <RotorMenu
+                choice1={menu1} choice2={menu2} choice3={menu3}
+                start1={start1} start2={start2} start3={start3}
+                reflektor={reflektor}
+                onChoiceChange={this.choiceChange}
+              />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <h5 className="App-input-header">Your Message</h5>
+              <textarea className="App-input"
+                autoComplete="off"
+                rows={8}
+                value={this.state.message} 
+                onChange={event=>this.inputChange(event,crypto)}
+              />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <h5 className="App-input-header">Encrypted Message</h5>
+              <textarea className="App-input"
+                autoComplete="off"
+                rows={8}
+                value={this.state.encoded}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <p className="App-directions">
+                Now try copying the encrypted message and paste it anywhere to send it to a friend.
+                This same web app can be used to decrypt the message by copy/pasting the sent message
+                into the first box.<br/><br/>
+                <b>Important: </b>Be sure to also share the exact same settings you used.<br/>
+                <i>example: 3 1 3, D A G, UKW-B</i>
+              </p>
+            </Grid>
           </Grid>
-          <Grid item xs={12} sm={6}>
-            <h5 className="App-input-header">Your Message</h5>
-            <textarea className="App-input"
-              autoComplete="off"
-              rows={8}
-              value={this.state.message} 
-              onChange={event=>this.inputChange(event,crypto)}
-            />
-          </Grid>
-          <Grid item xs={12} sm={6}>
-            <h5 className="App-input-header">Encrypted Message</h5>
-            <textarea className="App-input"
-              autoComplete="off"
-              rows={8}
-              value={this.state.encoded}
-            />
-          </Grid>
-          <Grid item xs={12}>
-            <p className="App-directions">
-            Now try copying the encrypted message and paste it anywhere to send it to a friend.
-            This same web app can be used to decrypt the message by copy/pasting the sent message
-            into the first box.<br/>
-            <b>Important: </b>Be sure to also share the exact same settings you used.<br/>
-            <i>example: <br/>
-            3 1 3 <br/>
-            D A G <br/>
-            UKW-B</i>
-            </p>
-          </Grid>
-        </Grid>
+        </div>
       </div>
     )
   }
