@@ -87,7 +87,7 @@ export default class Enigma
             this.rotor2.rotorStep();
         }
         //check for double step
-        if( this.rotor2.getTurnover() == this.rotor2.getCurrentPosition() ) {
+        if( rotor2Turn === r2currentChar ) {
             rotorFlag2 = true;
         }
         if(rotorFlag2) {
