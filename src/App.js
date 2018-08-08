@@ -15,6 +15,7 @@ class App extends React.Component {
     start1: 1,
     start2: 1,
     start3: 1,
+    reflektor: 'B',
     message: '',
     encoded: '',
   }
@@ -35,8 +36,8 @@ class App extends React.Component {
   }
 
   render() {
-    const {menu1,menu2,menu3,start1,start2,start3} = this.state;
-    const crypto = new Enigma(menu1,menu2,menu3,start1,start2,start3,'A',plugboard);
+    const {menu1,menu2,menu3,start1,start2,start3,reflektor} = this.state;
+    const crypto = new Enigma(menu1,menu2,menu3,start1,start2,start3,reflektor,plugboard);
 
     return (
       <div className="App">
@@ -44,11 +45,12 @@ class App extends React.Component {
           <h1 className="App-title">Enigma M3 Web</h1>
         </header>
         <h2>Settings</h2>
-        <Grid container spacing={24}>
+        <Grid container>
           <Grid item xs={12}>
             <RotorMenu
               choice1={menu1} choice2={menu2} choice3={menu3}
               start1={start1} start2={start2} start3={start3}
+              reflektor={reflektor}
               onChoiceChange={this.choiceChange}
             />
           </Grid>
@@ -70,9 +72,10 @@ class App extends React.Component {
             />
           </Grid>
           <Grid item xs={12}>
-            <p style={{margin: '16px 25%'}}>
-            Now try copy pasting the encrypted message and send it to a friend. be sure to tell them
-            the settings you used to get this encryption
+            <p className="App-directions">
+            Now try copying the encrypted message and paste it anywhere to send it to a friend.
+            They can use this same web app to decrypt the message.<br/>
+            <b>Important: </b>Be sure to tell them the settings you used.
             </p>
           </Grid>
         </Grid>

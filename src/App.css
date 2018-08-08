@@ -13,10 +13,14 @@
   resize: none;
   margin: auto 16px;
   width: 85%;
-  border: 2px solid #666666;
-  background-color: #eeeeee;
+  border: 4px groove #666666;
+  background-color: #fefefe;
 }
 
 .App-input-header {
   margin: 8px auto;
+}
+
+.App-directions {
+  padding: 16px 25%;
 }

@@ -5,13 +5,13 @@ import Rotor from './Rotor';
 const ASCII = 97;
 const ALPHA = 26;
 
-const reflektorA = {
+const reflektorB = {
   'a':'y', 'b':'r', 'c':'u', 'd':'h', 'e':'q', 'f':'s', 'g':'l',
   'h':'d', 'i':'p', 'j':'x', 'k':'n', 'l':'g', 'm':'o', 'n':'k',
   'o':'m', 'p':'i', 'q':'e', 'r':'b', 's':'f', 't':'z', 'u':'c', 
   'v':'w', 'w':'v', 'x':'j', 'y':'a', 'z':'t',
 }
-const reflektorB = {
+const reflektorC = {
   'a':'f', 'b':'v', 'c':'p', 'd':'j', 'e':'i', 'f':'a', 'g':'o',
   'h':'y', 'i':'e', 'j':'d', 'k':'r', 'l':'z', 'm':'x', 'n':'w',
   'o':'g', 'p':'c', 'q':'t', 'r':'k', 's':'u', 't':'q', 'u':'s',
@@ -29,6 +29,7 @@ export default class Enigma
     start3: PropTypes.number.isRequired,
     plugboard: PropTypes.object.isRequired,
   }
+
   constructor(rotorType1, rotorType2, rotorType3,
     start1, start2, start3,
     reflektor, plugboard) {
@@ -38,11 +39,11 @@ export default class Enigma
     this.plugboard = plugboard;
 
     switch(reflektor) {
-      case 'A': this.reflektor = reflektorA;
-        break;
       case 'B': this.reflektor = reflektorB;
         break;
-      default: this.reflektor = reflektorA;
+      case 'C': this.reflektor = reflektorC;
+        break;
+      default: this.reflektor = reflektorB;
     }
   }
 
@@ -52,12 +53,13 @@ export default class Enigma
     for( let index in encoded ) {
       let rotorFlag1 = false;
       let rotorFlag2 = false;
-      const rotor3Turn = this.rotor3.getTurnover();
-      const r3currentChar = String.fromCharCode(this.rotor3.getCurrentPosition() + ASCII);
-      const rotor2Turn = this.rotor2.getTurnover();
-      const r2currentChar = String.fromCharCode(this.rotor2.getCurrentPosition() + ASCII);
 
-      if( rotor3Turn === r3currentChar ) {
+      const rotor3TurnChar = this.rotor3.getTurnover();
+      const rotor3currentChar = String.fromCharCode(this.rotor3.getCurrentPosition() + ASCII);
+      const rotor2TurnChar = this.rotor2.getTurnover();
+      const rotor2currentChar = String.fromCharCode(this.rotor2.getCurrentPosition() + ASCII);
+
+      if( rotor3TurnChar === rotor3currentChar ) {
         rotorFlag1 = true;
       }
 
@@ -87,7 +89,7 @@ export default class Enigma
             this.rotor2.rotorStep();
         }
         //check for double step
-        if( rotor2Turn === r2currentChar ) {
+        if( rotor2TurnChar === rotor2currentChar ) {
             rotorFlag2 = true;
         }
         if(rotorFlag2) {
