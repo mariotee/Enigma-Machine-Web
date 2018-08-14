@@ -16,6 +16,7 @@ class App extends React.Component {
     start2: 1,
     start3: 1,
     reflektor: 'B',
+    plugboard: {},
     message: '',
     encoded: '',
   }
@@ -35,6 +36,8 @@ class App extends React.Component {
     })
   }
 
+
+
   render() {
     const { menu1,menu2,menu3,
       start1,start2,start3,
@@ -49,12 +52,11 @@ class App extends React.Component {
           <h1 className="App-title">Enigma M3 Web</h1>
         </header>
         <div className="App-content">
-          <h2>Settings</h2>
           <Grid container>
             <Grid item xs={12}>
               <RotorMenu
-                choice1={menu1} choice2={menu2} choice3={menu3}
-                start1={start1} start2={start2} start3={start3}
+                rotorChoices={[menu1,menu2,menu3]}
+                rotorStarts={[start1,start2,start3]}
                 reflektor={reflektor}
                 onChoiceChange={this.choiceChange}
               />
