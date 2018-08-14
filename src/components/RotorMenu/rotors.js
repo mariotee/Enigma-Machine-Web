@@ -19,7 +19,7 @@ function RotorMenu({ classes, ...props }) {
       <Grid container>
         <Grid item xs={4}>
           <InputLabel>{'Rotor 1'}</InputLabel>
-          <Select
+          <Select native
             className={classes.select}
             name="menu1"
             value={choice1}
@@ -30,7 +30,7 @@ function RotorMenu({ classes, ...props }) {
         </Grid>
         <Grid item xs={4}>
           <InputLabel>{'Rotor 2'}</InputLabel>
-          <Select
+          <Select native
             className={classes.select}
             name="menu2"
             value={choice2}
@@ -41,7 +41,7 @@ function RotorMenu({ classes, ...props }) {
         </Grid>
         <Grid item xs={4}>
           <InputLabel>{'Rotor 3'}</InputLabel>
-          <Select
+          <Select native
             className={classes.select}
             name="menu3"
             value={choice3}
@@ -53,7 +53,7 @@ function RotorMenu({ classes, ...props }) {
         <br/>
         <Grid item xs={4}>
           <InputLabel>{'Start 1'}</InputLabel>
-          <Select
+          <Select native
             className={classes.select}
             name="start1"
             value={start1}
@@ -64,7 +64,7 @@ function RotorMenu({ classes, ...props }) {
         </Grid>
         <Grid item xs={4}>
           <InputLabel>{'Start 2'}</InputLabel>
-          <Select
+          <Select native
             className={classes.select}
             name="start2"
             value={start2}
@@ -75,7 +75,7 @@ function RotorMenu({ classes, ...props }) {
         </Grid>
         <Grid item xs={4}>
           <InputLabel>{'Start 3'}</InputLabel>
-          <Select
+          <Select native
             className={classes.select}
             name="start3"
             value={start3}
@@ -86,7 +86,7 @@ function RotorMenu({ classes, ...props }) {
         </Grid>
         <Grid item xs={12}>
           <InputLabel>{'Reflektor'}</InputLabel>
-          <Select
+          <Select native
             className={classes.reflektor}
             name="reflektor"
             value={reflektor}
