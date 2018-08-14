@@ -33,9 +33,9 @@ export default class Enigma
   constructor(rotorType1, rotorType2, rotorType3,
     start1, start2, start3,
     reflektor, plugboard) {
-    this.rotor1 = new Rotor(rotorType1,start1-1);
-    this.rotor2 = new Rotor(rotorType2,start2-1);
-    this.rotor3 = new Rotor(rotorType3,start3-1);
+    this.rotor1 = new Rotor(rotorType1,start1);
+    this.rotor2 = new Rotor(rotorType2,start2);
+    this.rotor3 = new Rotor(rotorType3,start3);
     this.plugboard = plugboard;
 
     switch(reflektor) {

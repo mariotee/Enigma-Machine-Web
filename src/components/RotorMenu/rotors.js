@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import StartMenuItems from './startOptions.js';
-import RotorMenuItems from './rotorOptions.js';
-import ReflektorMenuItems from './reflektorOptions.js';
-
 import { withStyles, Grid, InputLabel, Select } from '@material-ui/core';
 import style from './style.js';
+
+import StartOptions from './startOptions.js';
+import RotorOptions from './rotorOptions.js';
+import ReflektorOptions from './reflektorOptions.js';
 
 function RotorMenu({ classes, ...props }) {
   const {rotorChoices,rotorStarts,reflektor} = props;
@@ -25,7 +25,7 @@ function RotorMenu({ classes, ...props }) {
             value={choice1}
             onChange={event=>props.onChoiceChange(event.target.name,event.target.value)}
           >
-            {RotorMenuItems}
+            {RotorOptions}
           </Select>
         </Grid>
         <Grid item xs={4}>
@@ -36,7 +36,7 @@ function RotorMenu({ classes, ...props }) {
             value={choice2}
             onChange={event=>props.onChoiceChange(event.target.name,event.target.value)}
           >
-            {RotorMenuItems}
+            {RotorOptions}
           </Select>
         </Grid>
         <Grid item xs={4}>
@@ -47,7 +47,7 @@ function RotorMenu({ classes, ...props }) {
             value={choice3}
             onChange={event=>props.onChoiceChange(event.target.name,event.target.value)}
           >
-            {RotorMenuItems}
+            {RotorOptions}
           </Select>
         </Grid>
         <br/>
@@ -59,7 +59,7 @@ function RotorMenu({ classes, ...props }) {
             value={start1}
             onChange={event=>props.onChoiceChange(event.target.name,event.target.value)}
           >
-            {StartMenuItems}
+            {StartOptions}
           </Select>
         </Grid>
         <Grid item xs={4}>
@@ -70,7 +70,7 @@ function RotorMenu({ classes, ...props }) {
             value={start2}
             onChange={event=>props.onChoiceChange(event.target.name,event.target.value)}
           >
-            {StartMenuItems}
+            {StartOptions}
           </Select>
         </Grid>
         <Grid item xs={4}>
@@ -81,7 +81,7 @@ function RotorMenu({ classes, ...props }) {
             value={start3}
             onChange={event=>props.onChoiceChange(event.target.name,event.target.value)}
           >
-            {StartMenuItems}
+            {StartOptions}
           </Select>
         </Grid>
         <Grid item xs={12}>
@@ -92,7 +92,7 @@ function RotorMenu({ classes, ...props }) {
             value={reflektor}
             onChange={event=>props.onChoiceChange(event.target.name,event.target.value)}
           >
-            {ReflektorMenuItems}
+            {ReflektorOptions}
           </Select>
         </Grid>
       </Grid>

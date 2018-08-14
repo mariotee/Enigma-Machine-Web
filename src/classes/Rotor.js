@@ -24,7 +24,7 @@ export default class Rotor
         break;
       case 5: this.__letters = wiring5; this.turnover = 'z';
         break;
-      default: console.log('error invalid input. using default mapping.');
+      default: console.error('error invalid Rotor input. using default mapping.');
         this.__letters = wiring1;
     }
   }
@@ -39,8 +39,6 @@ export default class Rotor
 
   rotorStep() {
     ++this.__position;
-    if( this.__position > 25 ) {
-      this.__position = 0;
-    }
+    if( this.__position > 25 ) { this.__position = 0; }
   }
 }
