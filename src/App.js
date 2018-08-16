@@ -7,28 +7,34 @@ import RotorMenu from 'components/RotorMenu';
 import Enigma from 'classes/Enigma';
 import plugboard from 'utils/TestPlugboard.js';
 
+const DECIMAL = 10;
+
 class App extends React.Component {
   state = {
-    menu1: 1,
-    menu2: 2,
-    menu3: 3,
+    rotor1: 1,
+    rotor2: 2,
+    rotor3: 3,
     start1: 0,
     start2: 0,
     start3: 0,
     reflektor: 'B',
-    plugboard: {},
+    //plugboard: {},
     message: '',
     encoded: '',
   }
 
-  inputChange = (event,crypto) => {
+  inputChange = (input,crypto) => {
     this.setState({
-      message: event.target.value,
-      encoded: crypto.write(event.target.value),
+      message: input,
+      encoded: crypto.write(input),
     })
   }
 
   choiceChange = (key,value) => {
+    if( /[0-9]/.test(value) ) {
+      value = parseInt(value,DECIMAL);
+    }
+
     this.setState({
       [key]: value,
       message: '',
@@ -36,15 +42,14 @@ class App extends React.Component {
     })
   }
 
-
-
   render() {
-    const { menu1,menu2,menu3,
-      start1,start2,start3,
-      reflektor } = this.state;
-    const crypto = new Enigma(menu1,menu2,menu3,
-      start1,start2,start3,
-      reflektor,plugboard);
+    const { rotor1,rotor2,rotor3,start1,start2,start3,reflektor } = this.state;
+
+    for( let thing in this.state ) {
+      console.log(`${typeof this.state[thing]}: ${this.state[thing]}`)
+    }
+    
+    const crypto = new Enigma(rotor1,rotor2,rotor3,start1,start2,start3,'B',plugboard);
 
     return (
       <div className="App">
@@ -55,10 +60,10 @@ class App extends React.Component {
           <Grid container>
             <Grid item xs={12}>
               <RotorMenu
-                rotorChoices={[menu1,menu2,menu3]}
+                rotorChoices={[rotor1,rotor2,rotor3]}
                 rotorStarts={[start1,start2,start3]}
                 reflektor={reflektor}
-                onChoiceChange={this.choiceChange}
+                onSelectChange={this.choiceChange}
               />
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -67,7 +72,7 @@ class App extends React.Component {
                 autoComplete="off"
                 rows={8}
                 value={this.state.message} 
-                onChange={event=>this.inputChange(event,crypto)}
+                onChange={event=>this.inputChange(event.target.value,crypto)}
               />
             </Grid>
             <Grid item xs={12} sm={6}>

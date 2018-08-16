@@ -10,7 +10,7 @@ import ReflektorOptions from './reflektorOptions.js';
 
 function RotorMenu({ classes, ...props }) {
   const {rotorChoices,rotorStarts,reflektor} = props;
-  const [choice1,choice2,choice3] = rotorChoices;
+  const [rotor1,rotor2,rotor3] = rotorChoices;
   const [start1,start2,start3] = rotorStarts;
 
   return(
@@ -21,9 +21,9 @@ function RotorMenu({ classes, ...props }) {
           <InputLabel>{'Rotor 1'}</InputLabel>
           <Select native
             className={classes.select}
-            name="menu1"
-            value={choice1}
-            onChange={event=>props.onChoiceChange(event.target.name,event.target.value)}
+            name="rotor1"
+            value={rotor1}
+            onChange={event=>props.onSelectChange(event.target.name,event.target.value)}
           >
             {RotorOptions}
           </Select>
@@ -32,9 +32,9 @@ function RotorMenu({ classes, ...props }) {
           <InputLabel>{'Rotor 2'}</InputLabel>
           <Select native
             className={classes.select}
-            name="menu2"
-            value={choice2}
-            onChange={event=>props.onChoiceChange(event.target.name,event.target.value)}
+            name="rotor2"
+            value={rotor2}
+            onChange={event=>props.onSelectChange(event.target.name,event.target.value)}
           >
             {RotorOptions}
           </Select>
@@ -43,9 +43,9 @@ function RotorMenu({ classes, ...props }) {
           <InputLabel>{'Rotor 3'}</InputLabel>
           <Select native
             className={classes.select}
-            name="menu3"
-            value={choice3}
-            onChange={event=>props.onChoiceChange(event.target.name,event.target.value)}
+            name="rotor3"
+            value={rotor3}
+            onChange={event=>props.onSelectChange(event.target.name,event.target.value)}
           >
             {RotorOptions}
           </Select>
@@ -57,7 +57,7 @@ function RotorMenu({ classes, ...props }) {
             className={classes.select}
             name="start1"
             value={start1}
-            onChange={event=>props.onChoiceChange(event.target.name,event.target.value)}
+            onChange={event=>props.onSelectChange(event.target.name,event.target.value)}
           >
             {StartOptions}
           </Select>
@@ -68,7 +68,7 @@ function RotorMenu({ classes, ...props }) {
             className={classes.select}
             name="start2"
             value={start2}
-            onChange={event=>props.onChoiceChange(event.target.name,event.target.value)}
+            onChange={event=>props.onSelectChange(event.target.name,event.target.value)}
           >
             {StartOptions}
           </Select>
@@ -79,7 +79,7 @@ function RotorMenu({ classes, ...props }) {
             className={classes.select}
             name="start3"
             value={start3}
-            onChange={event=>props.onChoiceChange(event.target.name,event.target.value)}
+            onChange={event=>props.onSelectChange(event.target.name,event.target.value)}
           >
             {StartOptions}
           </Select>
@@ -90,7 +90,7 @@ function RotorMenu({ classes, ...props }) {
             className={classes.reflektor}
             name="reflektor"
             value={reflektor}
-            onChange={event=>props.onChoiceChange(event.target.name,event.target.value)}
+            onChange={event=>props.onSelectChange(event.target.name,event.target.value)}
           >
             {ReflektorOptions}
           </Select>
@@ -104,7 +104,7 @@ RotorMenu.propTypes = {
   rotorChoices: PropTypes.arrayOf(PropTypes.number).isRequired,
   rotorStarts: PropTypes.arrayOf(PropTypes.number).isRequired,
   reflektor: PropTypes.string.isRequired,
-  onChoiceChange: PropTypes.func.isRequired,
+  onSelectChange: PropTypes.func.isRequired,
 }
 
 export default withStyles(style)(RotorMenu);

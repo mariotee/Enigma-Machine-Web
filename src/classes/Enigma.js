@@ -21,29 +21,27 @@ const reflektorC = {
 export default class Enigma
 {
   static propTypes = {
-    rotorType1: PropTypes.number.isRequired,
+    rotor1: PropTypes.number.isRequired,
     start1: PropTypes.number.isRequired,      
-    rotorType2: PropTypes.number.isRequired,
+    rotor2: PropTypes.number.isRequired,
     start2: PropTypes.number.isRequired,    
-    rotorType3: PropTypes.number.isRequired,
+    rotor3: PropTypes.number.isRequired,
     start3: PropTypes.number.isRequired,
     plugboard: PropTypes.object.isRequired,
   }
 
-  constructor(rotorType1, rotorType2, rotorType3,
-    start1, start2, start3,
-    reflektor, plugboard) {
-    this.rotor1 = new Rotor(rotorType1,start1);
-    this.rotor2 = new Rotor(rotorType2,start2);
-    this.rotor3 = new Rotor(rotorType3,start3);
-    this.plugboard = plugboard;
+  constructor( rotor1,rotor2,rotor3,start1,start2,start3,reflektor,plugboard ) {
+    this.__rotor1 = new Rotor(rotor1,start1);
+    this.__rotor2 = new Rotor(rotor2,start2);
+    this.__rotor3 = new Rotor(rotor3,start3);
+    this.__plugboard = plugboard;
 
     switch(reflektor) {
-      case 'B': this.reflektor = reflektorB;
+      case 'B': this.__reflektor = reflektorB;
         break;
-      case 'C': this.reflektor = reflektorC;
+      case 'C': this.__reflektor = reflektorC;
         break;
-      default: this.reflektor = reflektorB;
+      default: this.__reflektor = reflektorB;
     }
   }
 
@@ -54,46 +52,46 @@ export default class Enigma
       let rotorFlag1 = false;
       let rotorFlag2 = false;
 
-      const rotor3TurnChar = this.rotor3.getTurnover();
-      const rotor3currentChar = String.fromCharCode(this.rotor3.getCurrentPosition() + ASCII);
-      const rotor2TurnChar = this.rotor2.getTurnover();
-      const rotor2currentChar = String.fromCharCode(this.rotor2.getCurrentPosition() + ASCII);
+      const rotor3TurnChar = this.__rotor3.getTurnover();
+      const rotor3currentChar = String.fromCharCode(this.__rotor3.getCurrentPosition() + ASCII);
+      const rotor2TurnChar = this.__rotor2.getTurnover();
+      const rotor2currentChar = String.fromCharCode(this.__rotor2.getCurrentPosition() + ASCII);
 
       if( rotor3TurnChar === rotor3currentChar ) {
         rotorFlag1 = true;
       }
 
       let input = encoded[index];
-      const regexp = /^[a-z]+$/;
+      const regexp = /^[a-z]$/;
       
       if( regexp.test(input) ) {
         //initial swap
-        input = this.plugboard[input] ? this.plugboard[input] : input;
+        input = this.__plugboard[input] ? this.__plugboard[input] : input;
         //forward
-        input = this.__writeRotorForward(this.rotor3,input);
-        input = this.__writeRotorForward(this.rotor2,input);
-        input = this.__writeRotorForward(this.rotor1,input);
+        input = this.__writeRotorForward(this.__rotor3,input);
+        input = this.__writeRotorForward(this.__rotor2,input);
+        input = this.__writeRotorForward(this.__rotor1,input);
         //reflektor
-        input = this.reflektor[input];
+        input = this.__reflektor[input];
         //backward
-        input = this.__writeRotorReverse(this.rotor1,input);
-        input = this.__writeRotorReverse(this.rotor2,input);
-        input = this.__writeRotorReverse(this.rotor3,input);
+        input = this.__writeRotorReverse(this.__rotor1,input);
+        input = this.__writeRotorReverse(this.__rotor2,input);
+        input = this.__writeRotorReverse(this.__rotor3,input);
         //final swap
-        input = this.plugboard[input] ? this.plugboard[input] : input;
+        input = this.__plugboard[input] ? this.__plugboard[input] : input;
         //write
         encoded[index] = input;
         //rotor step
-        this.rotor3.rotorStep();
+        this.__rotor3.rotorStep();
         if( rotorFlag1 ) {
-            this.rotor2.rotorStep();
+            this.__rotor2.rotorStep();
         }
         //check for double step
         if( rotor2TurnChar === rotor2currentChar ) {
             rotorFlag2 = true;
         }
-        if(rotorFlag2) {
-            this.rotor1.rotorStep();
+        if( rotorFlag2 ) {
+            this.__rotor1.rotorStep();
         }
       }
     }

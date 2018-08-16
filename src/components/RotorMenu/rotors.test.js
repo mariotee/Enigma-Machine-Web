@@ -5,8 +5,8 @@ import RotorMenu from 'components/RotorMenu';
 const props = {
   rotorChoices: [1,3,3],
   rotorStarts: [1,20,5],
-  reflektor: 'A',
-  onChoiceChange: () => {console.log('lol')}
+  reflektor: 'B',
+  onSelectChange: () => {console.log('lol')}
 }
 
 describe('Rotor Menu Render Test', () => {
