@@ -67,7 +67,7 @@ class App extends React.Component {
               />
             </Grid>
             <Grid item xs={12} sm={6}>
-              <h3 className="App-input-header">Your Message</h3>
+              <h3 className="App-input-header">Message Input</h3>
               <textarea className="App-input"
                 autoComplete="off"
                 rows={8}
@@ -76,7 +76,7 @@ class App extends React.Component {
               />
             </Grid>
             <Grid item xs={12} sm={6}>
-              <h3 className="App-input-header">Encrypted Message</h3>
+              <h3 className="App-input-header">Message Output</h3>
               <textarea className="App-input"
                 autoComplete="off"
                 rows={8}
