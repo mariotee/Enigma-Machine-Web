@@ -44,10 +44,6 @@ class App extends React.Component {
 
   render() {
     const { rotor1,rotor2,rotor3,start1,start2,start3,reflektor } = this.state;
-
-    for( let thing in this.state ) {
-      console.log(`${typeof this.state[thing]}: ${this.state[thing]}`)
-    }
     
     const crypto = new Enigma(rotor1,rotor2,rotor3,start1,start2,start3,'B',plugboard);
 
