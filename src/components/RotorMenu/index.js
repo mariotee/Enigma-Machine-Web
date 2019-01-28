@@ -1,2 +1,2 @@
-import Component from './rotors.js';
+import Component from './menu.js';
 export default Component;

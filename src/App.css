@@ -3,28 +3,33 @@
 }
 
 .App-header {
-  background-color: #603030;
-  height: 88px;
-  padding: 8px 0;
+  background-color: #603030;  
   color: #fefefe;
+}
+
+.App-title {
+  padding: 8px;
+  font-size: 1.35rem;
 }
 
 .App-content {
   padding: 0 15%;
 }
-
-.App-input {
-  resize: none;
-  border: 4px groove #666666;
-  background-color: #fefefe;
-  width: 85%;
-  font-size: 16px;
+.App-input-root {
+  margin: 8px;   
+  width: 100%;
 }
-
-.App-input-header {
-  margin: 16px auto 8px auto;
+.App-input {
+  margin: 8px;
+  padding: 4px 8px;
+  resize: none;
+  border: 3px solid #999999;
+  border-radius: 8px;
+  background-color: #fefefe;    
+  font-size: 16px;
 }
 
 .App-directions {
   padding: 16px 24px;
+  font-size: 0.8rem;
 }

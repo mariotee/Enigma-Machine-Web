@@ -1,7 +1,5 @@
 import React from 'react';
 
-import { Grid } from '@material-ui/core';
-
 import './App.css';
 import RotorMenu from 'components/RotorMenu';
 import Enigma from 'classes/Enigma';
@@ -52,43 +50,36 @@ class App extends React.Component {
         <header className="App-header">
           <h1 className="App-title">Enigma M3 Web</h1>
         </header>
-        <div className="App-content">
-          <Grid container>
-            <Grid item xs={12}>
-              <RotorMenu
-                rotorChoices={[rotor1,rotor2,rotor3]}
-                rotorStarts={[start1,start2,start3]}
-                reflektor={reflektor}
-                onSelectChange={this.choiceChange}
-              />
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <h3 className="App-input-header">Message Input</h3>
-              <textarea className="App-input"
-                autoComplete="off"
-                rows={8}
-                value={this.state.message} 
-                onChange={event=>this.inputChange(event.target.value,crypto)}
-              />
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <h3 className="App-input-header">Message Output</h3>
-              <textarea className="App-input"
-                autoComplete="off"
-                rows={8}
-                value={this.state.encoded}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <p className="App-directions">
-                Now try copying the encrypted message and paste it anywhere to send it to a friend.
-                This same web app can be used to decrypt the message by copy/pasting the sent message
-                into the first box.<br/><br/>
-                <b>Important: </b>Be sure to also share the exact same settings you used.<br/>
-                <i>example: 3 1 3, D A G, UKW-B</i>
-              </p>
-            </Grid>
-          </Grid>
+        <div className="App-content">          
+          <RotorMenu
+            rotorChoices={[rotor1,rotor2,rotor3]}
+            rotorStarts={[start1,start2,start3]}
+            reflektor={reflektor}
+            onSelectChange={this.choiceChange}
+          />
+          <div className="App-input-root">
+            <textarea className="App-input"                
+              placeholder="your message"
+              autoComplete="off"
+              rows={8}
+              value={this.state.message} 
+              onChange={event=>this.inputChange(event.target.value,crypto)}
+            />
+                          
+            <textarea className="App-input"
+              placeholder="encoded message"
+              autoComplete="off"
+              rows={8}
+              value={this.state.encoded}
+            />
+          </div>                                    
+          <p className="App-directions">
+            Now try copying the encrypted message and paste it anywhere to send it to a friend.
+            This same web app can be used to decrypt the message by copy/pasting the sent message
+            into the first box.<br/><br/>
+            <b>Important: </b>Be sure to also share the exact same settings you used.<br/>
+            <i>example: 3 1 3, D A G, UKW-B</i>
+          </p>          
         </div>
       </div>
     )

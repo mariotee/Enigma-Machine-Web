@@ -1,8 +1,17 @@
-export default (theme) => ({
-  select: {
-    margin: `${theme.spacing.unit}px ${theme.spacing.unit*2}px`
+export default {
+  label: {    
+    fontSize: '0.8rem',
+    margin: '0 18px',
   },
-  reflektor: {
-    margin: `${theme.spacing.unit*3}px ${theme.spacing.unit*2}px`
+  select: {    
+    border: 'none',
+    margin: '8px 16px',
+    padding: '2px 4px',
+  },
+  reflektor: {    
+    border: 'none',
+    fontSize: '0.8rem',
+    margin: '8px 0',
+    padding: '2px 12px',
   }
-})
+}
