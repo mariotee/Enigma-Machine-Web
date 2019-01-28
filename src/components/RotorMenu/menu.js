@@ -14,67 +14,71 @@ function RotorMenu(props) {
 
   return <div>
     <h3>Settings</h3>
-    <label style={styles.label}>{'Rotor 1'}</label>
-    <label style={styles.label}>{'Rotor 2'}</label>
-    <label style={styles.label}>{'Rotor 3'}</label>
-    <br/>
+    <div style={styles.labelsRoot}>
+      <label style={styles.label}>{'Rotor 1'}</label>
+      <label style={styles.label}>{'Rotor 2'}</label>
+      <label style={styles.label}>{'Rotor 3'}</label>
+    </div>    
+    <div style={styles.selectRoot}>
+      <select            
+        style={styles.select}
+        name="rotor1"
+        value={rotor1}
+        onChange={event=>props.onSelectChange(event.target.name,event.target.value)}
+      >
+        {RotorOptions}
+      </select>      
+      <select            
+        style={styles.select}
+        name="rotor2"
+        value={rotor2}
+        onChange={event=>props.onSelectChange(event.target.name,event.target.value)}
+      >
+        {RotorOptions}
+      </select>      
+      <select            
+        style={styles.select}
+        name="rotor3"
+        value={rotor3}
+        onChange={event=>props.onSelectChange(event.target.name,event.target.value)}
+      >
+        {RotorOptions}
+      </select>    
+    </div>            
+    <div style={styles.labelsRoot}>
+      <label style={styles.label}>{'Start 1'}</label>
+      <label style={styles.label}>{'Start 2'}</label>
+      <label style={styles.label}>{'Start 3'}</label>
+    </div>    
+    <div style={styles.selectRoot}>
+      <select            
+        style={styles.select}
+        name="start1"
+        value={start1}
+        onChange={event=>props.onSelectChange(event.target.name,event.target.value)}
+      >
+        {StartOptions}
+      </select>      
+      <select            
+        style={styles.select}
+        name="start2"
+        value={start2}
+        onChange={event=>props.onSelectChange(event.target.name,event.target.value)}
+      >
+        {StartOptions}
+      </select>      
+      <select            
+        style={styles.select}
+        name="start3"
+        value={start3}
+        onChange={event=>props.onSelectChange(event.target.name,event.target.value)}
+      >
+        {StartOptions}
+      </select>
+    </div>    
+    <label style={styles.reflektorLabel}>{'Reflektor'}</label>
     <select            
-      style={styles.select}
-      name="rotor1"
-      value={rotor1}
-      onChange={event=>props.onSelectChange(event.target.name,event.target.value)}
-    >
-      {RotorOptions}
-    </select>      
-    <select            
-      style={styles.select}
-      name="rotor2"
-      value={rotor2}
-      onChange={event=>props.onSelectChange(event.target.name,event.target.value)}
-    >
-      {RotorOptions}
-    </select>      
-    <select            
-      style={styles.select}
-      name="rotor3"
-      value={rotor3}
-      onChange={event=>props.onSelectChange(event.target.name,event.target.value)}
-    >
-      {RotorOptions}
-    </select>    
-    <br/>    
-    <label style={styles.label}>{'Start 1'}</label>
-    <label style={styles.label}>{'Start 2'}</label>
-    <label style={styles.label}>{'Start 3'}</label>
-    <br/>
-    <select            
-      style={styles.select}
-      name="start1"
-      value={start1}
-      onChange={event=>props.onSelectChange(event.target.name,event.target.value)}
-    >
-      {StartOptions}
-    </select>      
-    <select            
-      style={styles.select}
-      name="start2"
-      value={start2}
-      onChange={event=>props.onSelectChange(event.target.name,event.target.value)}
-    >
-      {StartOptions}
-    </select>      
-    <select            
-      style={styles.select}
-      name="start3"
-      value={start3}
-      onChange={event=>props.onSelectChange(event.target.name,event.target.value)}
-    >
-      {StartOptions}
-    </select>
-    <br/>
-    <label style={styles.reflektor}>{'Reflektor'}</label>
-    <select            
-      style={styles.reflektor}
+      style={styles.reflektorSelect}
       name="reflektor"
       value={reflektor}
       onChange={event=>props.onSelectChange(event.target.name,event.target.value)}

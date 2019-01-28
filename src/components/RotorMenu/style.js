@@ -1,17 +1,30 @@
 export default {
-  label: {    
-    fontSize: '0.8rem',
-    margin: '0 18px',
+  labelsRoot: {
+    padding: '8px 64px',
+    display: 'flex',
+    justifyContent: 'space-between',
   },
-  select: {    
-    border: 'none',
-    margin: '8px 16px',
+  label: {    
+    fontSize: '1.15rem',    
+  },
+  selectRoot: {
+    padding: '8px 64px',
+    display: 'flex',
+    justifyContent: 'space-between',
+  },
+  select: {
+    fontSize: '1.15rem',
+    border: 'none',    
     padding: '2px 4px',
   },
-  reflektor: {    
-    border: 'none',
-    fontSize: '0.8rem',
-    margin: '8px 0',
+  reflektorLabel: {    
+    fontSize: '1.15rem',
+    margin: '16px',
+  },
+  reflektorSelect: {    
+    fontSize: '1.05rem',
+    border: 'none', 
+    margin: '16px 0',       
     padding: '2px 12px',
-  }
+  },
 }
