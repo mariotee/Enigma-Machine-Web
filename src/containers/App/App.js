@@ -122,18 +122,18 @@ class App extends React.Component {
             reflektor={reflektor}
             onSelectChange={this.choiceChange}
           />
-          <MessageArea
-            inputChange={this.inputChange}
-            message={this.state.message}
-            encoded={this.state.encoded}
-            crypto={crypto}
-          />          
           <Plugboard
             board={this.state.plugboard}
             possible={this.state.possible}
             onChangeKey={this.plugboardChangeKey}
             onChangeValue={this.plugboardChangeValue}
           />
+          <MessageArea
+            inputChange={this.inputChange}
+            message={this.state.message}
+            encoded={this.state.encoded}
+            crypto={crypto}
+          />                    
           <Instructions/>
         </div>
       </div>
