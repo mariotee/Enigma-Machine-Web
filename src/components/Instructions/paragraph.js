@@ -8,7 +8,7 @@ export default function() {
       This same web app can be used to decrypt the message by copy/pasting the sent message
       into the first box.<br/><br/>
       <b>Important: </b>Be sure to also share the exact same settings you used.<br/>
-      <i>example: 3 1 3, D A G, UKW-B</i>
+      <i>example: 3 1 3, D A G, UKW-B, AB CD EF GH IJ KL MN OP QR ST</i>
     </p>
   </div>
 }

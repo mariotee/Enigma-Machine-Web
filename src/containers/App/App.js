@@ -3,8 +3,8 @@ import React from 'react'
 import RotorMenu from 'components/RotorMenu'
 import MessageArea from 'components/MessageArea'
 import Instructions from 'components/Instructions'
+import Plugboard from 'components/Plugboard'
 import Enigma from 'classes/Enigma'
-import plugboard from 'utils/TestPlugboard.js'
 
 import styles from './style.js'
 
@@ -19,7 +19,20 @@ class App extends React.Component {
     start2: 0,
     start3: 0,
     reflektor: 'B',
-    //plugboard: {},
+    plugboard: [
+      {'sent':'inel'},
+      {'a':'b'},
+      {'c':'d'},
+      {'e':'f'},
+      {'g':'h'},
+      {'i':'j'},
+      {'k':'l'},
+      {'m':'n'},
+      {'o':'p'},
+      {'q':'r'},
+      {'s':'t'},
+    ],
+    possible: ['u','v','w','x','y','z'],
     message: '',
     encoded: '',
   }
@@ -43,10 +56,59 @@ class App extends React.Component {
     })
   }
 
+  plugboardChangeKey = (value, index) => {
+    this.setState((prevState) => {
+      let key = Object.keys(prevState.plugboard[index])[0]
+      const pos = prevState.possible
+      pos[pos.indexOf(value)] = key
+      const val = prevState.plugboard[index][key]
+      const arr = prevState.plugboard
+      key = value
+      arr[index] = { [key]: val }            
+
+      return {
+        plugboard: arr,        
+        possible: pos,
+        message: '',
+        encoded: '',
+      }
+    })
+  }
+
+  plugboardChangeValue = (value, index) => {
+    this.setState((prevState) => {            
+      const arr = prevState.plugboard
+      const key = Object.keys(arr[index])[0]
+      let val = arr[index][key]
+      let pos = prevState.possible
+      pos[pos.indexOf(value)] = val
+      val = value      
+      arr[index] = { [key]: val }
+            
+      return {
+        plugboard: arr,        
+        possible: pos,
+        message: '',
+        encoded: '',
+      }
+    })
+  }
+
   render() {
-    const { rotor1,rotor2,rotor3,start1,start2,start3,reflektor } = this.state;
-    
-    const crypto = new Enigma(rotor1,rotor2,rotor3,start1,start2,start3,'B',plugboard);
+    const makePlugboard = (plugboard) => {
+      let board = {};
+      for(const element of plugboard) {
+        const key = Object.keys(element)[0]
+        board[key] = element[key]
+        board[element[key]] = key
+      }
+
+      return board
+    }
+
+    const { rotor1,rotor2,rotor3,start1,start2,start3,reflektor,plugboard } = this.state;
+    const plugboardInput = makePlugboard(plugboard);
+    const crypto = new Enigma(rotor1,rotor2,rotor3,start1,start2,start3,'B',plugboardInput);
 
     return (
       <div style={styles.root}>
@@ -65,6 +127,12 @@ class App extends React.Component {
             message={this.state.message}
             encoded={this.state.encoded}
             crypto={crypto}
+          />          
+          <Plugboard
+            board={this.state.plugboard}
+            possible={this.state.possible}
+            onChangeKey={this.plugboardChangeKey}
+            onChangeValue={this.plugboardChangeValue}
           />
           <Instructions/>
         </div>
