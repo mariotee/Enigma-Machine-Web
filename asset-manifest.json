@@ -1,4 +1,9 @@
 {
-  "main.css": "static/css/main.951e2d3a.css",
-  "main.js": "static/js/main.85041751.js"
+  "main.css": "/Enigma-Machine-Web/static/css/main.c7f3c6ee.chunk.css",
+  "main.js": "/Enigma-Machine-Web/static/js/main.0510d6d9.chunk.js",
+  "static/js/1.01d315b1.chunk.js": "/Enigma-Machine-Web/static/js/1.01d315b1.chunk.js",
+  "runtime~main.js": "/Enigma-Machine-Web/static/js/runtime~main.fe11e84c.js",
+  "index.html": "/Enigma-Machine-Web/index.html",
+  "precache-manifest.db515bcf3b445113bd8055f56d13c1eb.js": "/Enigma-Machine-Web/precache-manifest.db515bcf3b445113bd8055f56d13c1eb.js",
+  "service-worker.js": "/Enigma-Machine-Web/service-worker.js"
 }
