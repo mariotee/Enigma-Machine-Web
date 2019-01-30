@@ -3,6 +3,7 @@ import React from 'react'
 import RotorMenu from 'components/RotorMenu'
 import MessageArea from 'components/MessageArea'
 import Instructions from 'components/Instructions'
+import Plugboard from 'components/Plugboard'
 import Enigma from 'classes/Enigma'
 import plugboard from 'utils/TestPlugboard.js'
 
@@ -67,6 +68,7 @@ class App extends React.Component {
             crypto={crypto}
           />
           <Instructions/>
+          <Plugboard/>
         </div>
       </div>
     )
