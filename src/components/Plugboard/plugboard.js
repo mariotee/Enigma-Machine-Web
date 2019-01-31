@@ -14,13 +14,13 @@ export default function(props) {
       return <div style={styles.pair}>
         Pair {num}
         <div>
-          <select value={value1} onChange={(e) => props.onChangeKey(e.target.value, num)}>
+          <select style={styles.select} value={value1} onChange={(e) => props.onChangeKey(e.target.value, num)}>
             <option>{value1}</option>
             {options}
           </select>
         </div>
         <div>
-          <select value={value2} onChange={(e) => props.onChangeValue(e.target.value, num)}>
+          <select style={styles.select} value={value2} onChange={(e) => props.onChangeValue(e.target.value, num)}>
             <option>{value2}</option>
             {options}
           </select>

@@ -19,12 +19,12 @@ export default {
   },
   reflektorLabel: {    
     fontSize: '1.15rem',
-    margin: '16px',
+    margin: '0 16px',
   },
   reflektorSelect: {    
     fontSize: '1.05rem',
     border: 'none', 
-    margin: '16px 0',       
+    margin: '32px 0',
     padding: '2px 12px',
   },
 }

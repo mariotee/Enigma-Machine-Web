@@ -37,7 +37,7 @@ class App extends React.Component {
     encoded: '',
   }
 
-  inputChange = (input,crypto) => {
+  onMessageWrite = (input,crypto) => {
     this.setState({
       message: input,
       encoded: crypto.write(input),
@@ -80,7 +80,7 @@ class App extends React.Component {
       const arr = prevState.plugboard
       const key = Object.keys(arr[index])[0]
       let val = arr[index][key]
-      let pos = prevState.possible
+      const pos = prevState.possible
       pos[pos.indexOf(value)] = val
       val = value      
       arr[index] = { [key]: val }
@@ -129,7 +129,7 @@ class App extends React.Component {
             onChangeValue={this.plugboardChangeValue}
           />
           <MessageArea
-            inputChange={this.inputChange}
+            inputChange={this.onMessageWrite}
             message={this.state.message}
             encoded={this.state.encoded}
             crypto={crypto}
