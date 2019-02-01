@@ -2,7 +2,7 @@ export default {
   root: {
     textAlign: "center",    
   },
-  header: {    
+  header: {
     border: "1px solid #603030",
     backgroundColor: "#603030",
     color: "#fefefe",
@@ -21,12 +21,13 @@ export default {
       boxShadow: "0 1px 4px 0 #666666",
     }
   },
-  title: {  
+  title: {
     fontSize: "1.35rem",
-  },  
-  content: {    
+  },
+  content: {
     margin: "0 auto",
     padding: "8px",
     maxWidth: "800px",
+    width: '90%',
   },
 }
