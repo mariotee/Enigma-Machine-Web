@@ -2,10 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import RotorMenu from 'components/RotorMenu';
 
-const props = {
+const attributes = {
   rotorChoices: [1,3,3],
   rotorStarts: [1,20,5],
-  reflektor: 'B',
+  reflektor: 'B',  
   onSelectChange: () => {console.log('lol')}
 }
 
@@ -14,7 +14,10 @@ describe('Rotor Menu Render Test', () => {
     const div = document.createElement('div');
 
     ReactDOM.render(<RotorMenu 
-      {...props}
+      rotorChoices={attributes.rotorChoices}
+      rotorStarts={attributes.rotorStarts}
+      reflektor={attributes.reflektor}
+      onSelectChange={attributes.onSelectChange}
     />, div);
     ReactDOM.unmountComponentAtNode(div);
   });

@@ -21,7 +21,10 @@ function RotorMenu(props) {
     </div>    
     <div style={styles.selectRoot}>
       <select            
-        style={styles.select}
+        style={{
+          ...styles.select,
+          ...(props.theme === 'dark' ? styles.select._dark : null),
+        }}
         name="rotor1"
         value={rotor1}
         onChange={event=>props.onSelectChange(event.target.name,event.target.value)}
@@ -29,7 +32,10 @@ function RotorMenu(props) {
         {RotorOptions}
       </select>      
       <select            
-        style={styles.select}
+        style={{
+          ...styles.select,
+          ...(props.theme === 'dark' ? styles.select._dark : null),
+        }}
         name="rotor2"
         value={rotor2}
         onChange={event=>props.onSelectChange(event.target.name,event.target.value)}
@@ -37,7 +43,10 @@ function RotorMenu(props) {
         {RotorOptions}
       </select>      
       <select            
-        style={styles.select}
+        style={{
+          ...styles.select,
+          ...(props.theme === 'dark' ? styles.select._dark : null),
+        }}
         name="rotor3"
         value={rotor3}
         onChange={event=>props.onSelectChange(event.target.name,event.target.value)}
@@ -52,7 +61,10 @@ function RotorMenu(props) {
     </div>    
     <div style={styles.selectRoot}>
       <select            
-        style={styles.select}
+        style={{
+          ...styles.select,
+          ...(props.theme === 'dark' ? styles.select._dark : null),
+        }}
         name="start1"
         value={start1}
         onChange={event=>props.onSelectChange(event.target.name,event.target.value)}
@@ -60,7 +72,10 @@ function RotorMenu(props) {
         {StartOptions}
       </select>      
       <select            
-        style={styles.select}
+        style={{
+          ...styles.select,
+          ...(props.theme === 'dark' ? styles.select._dark : null),
+        }}
         name="start2"
         value={start2}
         onChange={event=>props.onSelectChange(event.target.name,event.target.value)}
@@ -68,7 +83,10 @@ function RotorMenu(props) {
         {StartOptions}
       </select>      
       <select            
-        style={styles.select}
+        style={{
+          ...styles.select,
+          ...(props.theme === 'dark' ? styles.select._dark : null),
+        }}
         name="start3"
         value={start3}
         onChange={event=>props.onSelectChange(event.target.name,event.target.value)}
@@ -78,13 +96,16 @@ function RotorMenu(props) {
     </div>    
     <label style={styles.reflektorLabel}>{'Reflektor'}</label>
     <select            
-      style={styles.reflektorSelect}
+      style={{
+        ...styles.reflektorSelect,
+        ...(props.theme === 'dark' ? styles.reflektorSelect._dark : null),
+      }}
       name="reflektor"
       value={reflektor}
       onChange={event=>props.onSelectChange(event.target.name,event.target.value)}
     >
       {ReflektorOptions}
-    </select> 
+    </select>     
   </div>
 }
 

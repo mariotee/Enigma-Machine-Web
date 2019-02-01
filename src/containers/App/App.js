@@ -12,6 +12,7 @@ const DECIMAL = 10;
 
 class App extends React.Component {
   state = {
+    theme: 'light',
     rotor1: 1,
     rotor2: 2,
     rotor3: 3,
@@ -35,6 +36,40 @@ class App extends React.Component {
     possible: ['u','v','w','x','y','z'],
     message: '',
     encoded: '',
+  }
+
+  componentDidMount() {
+    this.setState({
+      theme: this.getThemeCookie() || 'light',
+    })
+  }
+
+  getThemeCookie = () => {
+    const key = "theme="
+    const decodedCookie = decodeURIComponent(document.cookie)
+    var ca = decodedCookie.split(';')
+    for(var i = 0; i <ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0) === ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(key) === 0) {
+        return c.substring(key.length, c.length);
+      }
+    }
+    return "";
+  }
+
+  toggleTheme = () => {  
+    this.setState((prevState) => {
+      const themeToBe = prevState.theme === 'light' ? 'dark' : 'light'
+    const expires = new Date()
+    expires.setTime(expires.getTime() + 1000*60*60*24)
+
+    document.cookie = `theme=${themeToBe};expires=${expires.toUTCString()};path=/;`
+
+    return { theme:  themeToBe }
+    })
   }
 
   onMessageWrite = (input,crypto) => {
@@ -108,36 +143,53 @@ class App extends React.Component {
 
     const { rotor1,rotor2,rotor3,start1,start2,start3,reflektor,plugboard } = this.state;
     const plugboardInput = makePlugboard(plugboard);
-    const crypto = new Enigma(rotor1,rotor2,rotor3,start1,start2,start3,'B',plugboardInput);
+    const crypto = new Enigma(rotor1,rotor2,rotor3,start1,start2,start3,'B',plugboardInput);    
+    
+    const themeStyle = this.state.theme === 'dark'
+      ? { backgroundColor: '#333333', color: '#eeeeee'}
+      : { backgroundColor: '#eeeeee', color: '#000000'}
 
-    return (
-      <div style={styles.root}>
-        <header style={styles.header}>
-          <h1 style={styles.title}>Enigma M3 Web</h1>
-        </header>
-        <div style={styles.content}>
-          <RotorMenu
-            rotorChoices={[rotor1,rotor2,rotor3]}
-            rotorStarts={[start1,start2,start3]}
-            reflektor={reflektor}
-            onSelectChange={this.choiceChange}
-          />
-          <Plugboard
-            board={this.state.plugboard}
-            possible={this.state.possible}
-            onChangeKey={this.plugboardChangeKey}
-            onChangeValue={this.plugboardChangeValue}
-          />
-          <MessageArea
-            inputChange={this.onMessageWrite}
-            message={this.state.message}
-            encoded={this.state.encoded}
-            crypto={crypto}
-          />                    
-          <Instructions/>
-        </div>
+    return <div style={{
+      ...styles.root,
+      ...themeStyle,
+    }}>
+      <div style={styles.header}>
+        <h1 style={styles.title}>Enigma M3 Web</h1>        
       </div>
-    )
+      <div style={styles.content}>
+        <RotorMenu
+          theme={this.state.theme}
+          rotorChoices={[rotor1,rotor2,rotor3]}
+          rotorStarts={[start1,start2,start3]}
+          reflektor={reflektor}
+          onSelectChange={this.choiceChange}
+        />
+        <Plugboard
+          theme={this.state.theme}
+          board={this.state.plugboard}
+          possible={this.state.possible}
+          onChangeKey={this.plugboardChangeKey}
+          onChangeValue={this.plugboardChangeValue}
+        />
+        <MessageArea
+          theme={this.state.theme}
+          inputChange={this.onMessageWrite}
+          message={this.state.message}
+          encoded={this.state.encoded}
+          crypto={crypto}
+        />                    
+        <Instructions theme={this.state.theme}/>
+      </div>
+      <footer>      
+        <button style={{
+          ...styles.themetoggle,
+          ...(this.state.theme === 'dark' ? styles.themetoggle._dark : null)
+        }}        
+        onClick={this.toggleTheme}>
+          Toggle {this.state.theme === 'dark' ? 'Light' : 'Dark'} Theme
+        </button>
+      </footer>
+    </div>    
   }
 }
 

@@ -1,7 +1,9 @@
 import React from 'react'
+import pt from 'prop-types'
+
 import styles from './style.js'
 
-export default function(props) {          
+function Plugboard(props) {    
     const getPossible = () => {
       return props.possible.map((element, index) => {
         return <option key={index}>
@@ -14,13 +16,27 @@ export default function(props) {
       return <div style={styles.pair}>
         Pair {num}
         <div>
-          <select style={styles.select} value={value1} onChange={(e) => props.onChangeKey(e.target.value, num)}>
+          <select 
+            style={{
+              ...styles.select,
+              ...(props.theme === 'dark' ? styles.select._dark : null)
+            }}
+            value={value1} 
+            onChange={(e) => props.onChangeKey(e.target.value, num)}
+          >
             <option>{value1}</option>
             {options}
           </select>
         </div>
         <div>
-          <select style={styles.select} value={value2} onChange={(e) => props.onChangeValue(e.target.value, num)}>
+          <select 
+            style={{
+              ...styles.select,
+              ...(props.theme === 'dark' ? styles.select._dark : null)
+            }}
+            value={value2} 
+            onChange={(e) => props.onChangeValue(e.target.value, num)}
+          >
             <option>{value2}</option>
             {options}
           </select>
@@ -50,3 +66,12 @@ export default function(props) {
       </div>          
     </div>  
 }
+
+Plugboard.propTypes = {
+  board: pt.arrayOf(pt.object).isRequired,
+  possible: pt.arrayOf(pt.string).isRequired,
+  onChangeKey: pt.func.isRequired,
+  onChangeValue: pt.func.isRequired,
+}
+
+export default Plugboard
