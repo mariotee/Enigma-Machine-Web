@@ -181,7 +181,7 @@ class App extends React.Component {
         <Instructions theme={this.state.theme}/>
       </div>
       <footer>      
-        <button style={{
+        <button className="anybutton" style={{
           ...styles.themetoggle,
           ...(this.state.theme === 'dark' ? styles.themetoggle._dark : null)
         }}        
