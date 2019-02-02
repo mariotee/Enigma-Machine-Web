@@ -1,9 +1,11 @@
 import React from 'react'
 import pt from 'prop-types'
 
+import PlugboardPair from 'components/PlugboardPair'
+
 import styles from './style.js'
 
-function Plugboard(props) {    
+function Plugboard(props) {
     const getPossible = () => {
       return props.possible.map((element, index) => {
         return <option key={index}>
@@ -12,57 +14,45 @@ function Plugboard(props) {
       })
     }
 
-    const renderPair = (num, options, value1, value2) => {
-      return <div style={styles.pair}>
-        Pair {num}
-        <div>
-          <select 
-            style={{
-              ...styles.select,
-              ...(props.theme === 'dark' ? styles.select._dark : null)
-            }}
-            value={value1} 
-            onChange={(e) => props.onChangeKey(e.target.value, num)}
-          >
-            <option>{value1}</option>
-            {options}
-          </select>
-        </div>
-        <div>
-          <select 
-            style={{
-              ...styles.select,
-              ...(props.theme === 'dark' ? styles.select._dark : null)
-            }}
-            value={value2} 
-            onChange={(e) => props.onChangeValue(e.target.value, num)}
-          >
-            <option>{value2}</option>
-            {options}
-          </select>
-        </div>
-      </div>
-    }
-
     const getKey = (num) => {
       return Object.keys(props.board[num])[0]
     }
+    const numsTop = [1,2,3,4,5]
+    const numsBottom = [6,7,8,9,10]
 
     return <div style={styles.root}>
       <div style={styles.title}>Plugboard</div>
       <div style={styles.board}>
-        {renderPair(1, getPossible(), getKey(1), props.board[1][getKey(1)])}
-        {renderPair(2, getPossible(), getKey(2), props.board[2][getKey(2)])}
-        {renderPair(3, getPossible(), getKey(3), props.board[3][getKey(3)])}
-        {renderPair(4, getPossible(), getKey(4), props.board[4][getKey(4)])}
-        {renderPair(5, getPossible(), getKey(5), props.board[5][getKey(5)])}
+      {
+        numsTop.map((element, index) => {
+          return <PlugboardPair
+            key={index}
+            theme={props.theme}
+            num={element}
+            possible={getPossible()}
+            pairKey={getKey(element)} 
+            pairValue={props.board[element][getKey(element)]} 
+            onChangeKey={props.onChangeKey} 
+            onChangeValue={props.onChangeValue}
+          />
+        })
+      }
       </div>
       <div style={styles.board}>
-        {renderPair(6, getPossible(), getKey(6), props.board[6][getKey(6)])}
-        {renderPair(7, getPossible(), getKey(7), props.board[7][getKey(7)])}
-        {renderPair(8, getPossible(), getKey(8), props.board[8][getKey(8)])}
-        {renderPair(9, getPossible(), getKey(9), props.board[9][getKey(9)])}
-        {renderPair(10, getPossible(), getKey(10), props.board[10][getKey(10)])}
+      {
+        numsBottom.map((element, index) => {          
+          return <PlugboardPair
+            key={index}
+            theme={props.theme}
+            num={element}
+            possible={getPossible()} 
+            pairKey={getKey(element)} 
+            pairValue={props.board[element][getKey(element)]} 
+            onChangeKey={props.onChangeKey} 
+            onChangeValue={props.onChangeValue}
+          />
+        })
+      }
       </div>          
     </div>  
 }

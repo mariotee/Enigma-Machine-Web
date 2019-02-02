@@ -1,20 +1,20 @@
 export default {
-  root: {        
-    margin: '8px auto',    
+  root: {    
+    margin: '0 auto',
   },
   input: {
     width: '90%',
     maxWidth: '320px',
     resize: 'none',
-    border: '3px solid #999999',
+    border: '1px solid #000000',
     borderRadius: '8px',
-    margin: '8px',
+    margin: '32px 18px',
     boxShadow: '0 1px 4px 0 #999999',
-    _dark: {
+    _dark: {      
       backgroundColor: '#603030',
       color: '#eeeeee',
+      border: '1px solid #cccccc',
       boxShadow: '0 1px 4px 0 #666666',
-    },    
-  },
-  
+    },
+  },  
 }
