@@ -186,7 +186,7 @@ class App extends React.Component {
           Toggle {this.state.theme === "dark" ? "Light" : "Dark"} Theme
         </button>
       </footer>
-    </div>    
+    </div>
   }
 }
 

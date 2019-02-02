@@ -12,7 +12,7 @@ function RotorMenu(props) {
   const [rotor1,rotor2,rotor3] = rotorChoices;
   const [start1,start2,start3] = rotorStarts;
 
-  return <div>
+  return <div style={styles.root}>
     <h3>Settings</h3>
     <div style={styles.labelsRoot}>
       <label style={styles.label}>{'Rotor 1'}</label>

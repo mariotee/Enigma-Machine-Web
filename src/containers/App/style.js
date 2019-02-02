@@ -27,7 +27,6 @@ export default {
   content: {
     margin: "0 auto",
     padding: "8px",
-    maxWidth: "800px",
-    width: '90%',
+    maxWidth: "800px",    
   },
 }
