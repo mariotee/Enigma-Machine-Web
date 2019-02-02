@@ -11,8 +11,7 @@ import styles from "./style.js"
 const DECIMAL = 10;
 
 class App extends React.Component {
-  state = {
-    theme: "light",
+  state = {    
     rotor1: 1,
     rotor2: 2,
     rotor3: 3,
@@ -40,30 +39,15 @@ class App extends React.Component {
 
   componentDidMount() {
     this.setState({
-      theme: this.getCookieByKey("theme") || "light",
-    })
-  }
-
-  getCookieByKey = (key) => {    
-    const decodedCookie = decodeURIComponent(document.cookie)
-    if(decodedCookie && decodedCookie.length !== 0) {
-      const arr = decodedCookie.split(";")
-      for(const item of arr) {
-        const parts = item.split("=")
-        if(parts[0] === key) return parts[1]
-      }
-    }
-
-    return ""
+      theme: localStorage.theme || "light",
+    })    
   }
 
   toggleTheme = () => {  
     this.setState((prevState) => {
       const themeToBe = prevState.theme === "light" ? "dark" : "light"
-      const expires = new Date()
-      expires.setTime(expires.getTime() + 1000*60*60*24)
 
-      document.cookie = `theme=${themeToBe};expires=${expires.toUTCString()};path=/;`
+      localStorage.theme = themeToBe
 
       return { theme:  themeToBe }
     })
@@ -177,7 +161,7 @@ class App extends React.Component {
         />                    
         <Instructions theme={this.state.theme}/>
       </div>
-      <footer>      
+      <footer>
         <button className="anybutton" style={{
           ...styles.themetoggle,
           ...(this.state.theme === "dark" ? styles.themetoggle._dark : null)
