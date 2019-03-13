@@ -1,9 +1,10 @@
 {
-  "main.css": "/Enigma-Machine-Web/static/css/main.54eb327e.chunk.css",
-  "main.js": "/Enigma-Machine-Web/static/js/main.81cb25e9.chunk.js",
-  "static/js/1.b3de899e.chunk.js": "/Enigma-Machine-Web/static/js/1.b3de899e.chunk.js",
+  "main.css": "/Enigma-Machine-Web/static/css/main.5240dd7c.chunk.css",
+  "main.js": "/Enigma-Machine-Web/static/js/main.f0a15b20.chunk.js",
+  "static/js/1.e7904b93.chunk.js": "/Enigma-Machine-Web/static/js/1.e7904b93.chunk.js",
   "runtime~main.js": "/Enigma-Machine-Web/static/js/runtime~main.fe11e84c.js",
+  "static/media/index.css": "/Enigma-Machine-Web/static/media/enigma.243ef8a2.png",
   "index.html": "/Enigma-Machine-Web/index.html",
-  "precache-manifest.f91ad2c73eb322559ecb8db058850b7e.js": "/Enigma-Machine-Web/precache-manifest.f91ad2c73eb322559ecb8db058850b7e.js",
+  "precache-manifest.78865c57118078c52a2b4e864a082b31.js": "/Enigma-Machine-Web/precache-manifest.78865c57118078c52a2b4e864a082b31.js",
   "service-worker.js": "/Enigma-Machine-Web/service-worker.js"
 }
