@@ -1,0 +1,14 @@
+.pair {
+  margin: 0 auto;
+}
+
+.select {
+  border: none;
+  margin: 0.25rem;
+  font-size: 1.10rem;  
+}
+
+.select[dark="true"] {
+  background-color: #603030;
+  color: #eeeeee;
+}

@@ -6,7 +6,7 @@ import Instructions from "components/Instructions"
 import Plugboard from "components/Plugboard"
 import Enigma from "classes/Enigma"
 
-import styles from "./style.js"
+import styles from "./style.module.css"
 
 const DECIMAL = 10;
 
@@ -124,20 +124,13 @@ class App extends React.Component {
 
     const { rotor1,rotor2,rotor3,start1,start2,start3,reflektor,plugboard } = this.state;
     const plugboardInput = makePlugboard(plugboard);
-    const crypto = new Enigma(rotor1,rotor2,rotor3,start1,start2,start3,"B",plugboardInput);    
-    
-    const themeStyle = this.state.theme === "dark"
-      ? { backgroundColor: "#333333", color: "#eeeeee"}
-      : { backgroundColor: "#eeeeee", color: "#000000"}
+    const crypto = new Enigma(rotor1,rotor2,rotor3,start1,start2,start3,"B",plugboardInput);            
 
-    return <div style={{
-      ...styles.root,
-      ...themeStyle,
-    }}>
-      <div style={styles.header}>
-        <h1 style={styles.title}>Enigma M3 Web</h1>        
+    return <div className={styles.root} dark={this.state.theme === "dark" ? "true" : "false"}>
+      <div className={styles.header}>
+        <h1 className={styles.title}>Enigma M3 Web</h1>        
       </div>
-      <div style={styles.content}>
+      <div className={styles.content}>
         <RotorMenu
           theme={this.state.theme}
           rotorChoices={[rotor1,rotor2,rotor3]}
@@ -162,10 +155,8 @@ class App extends React.Component {
         <Instructions theme={this.state.theme}/>
       </div>
       <footer>
-        <button className="anybutton" style={{
-          ...styles.themetoggle,
-          ...(this.state.theme === "dark" ? styles.themetoggle._dark : null)
-        }}        
+        <button className={styles.themetoggle}
+        dark={this.state.theme === "dark" ? "true" : "false"}
         onClick={this.toggleTheme}>
           Toggle {this.state.theme === "dark" ? "Light" : "Dark"} Theme
         </button>

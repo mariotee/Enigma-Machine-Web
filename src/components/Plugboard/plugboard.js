@@ -3,7 +3,7 @@ import pt from 'prop-types'
 
 import PlugboardPair from 'components/PlugboardPair'
 
-import styles from './style.js'
+import styles from './style.module.css'
 
 function Plugboard(props) {
     const getPossible = () => {
@@ -20,9 +20,9 @@ function Plugboard(props) {
     const numsTop = [1,2,3,4,5]
     const numsBottom = [6,7,8,9,10]
 
-    return <div style={styles.root}>
-      <div style={styles.title}>Plugboard</div>
-      <div style={styles.board}>
+    return <div className={styles.root}>
+      <div className={styles.title}>Plugboard</div>
+      <div className={styles.board}>
       {
         numsTop.map((element, index) => {
           return <PlugboardPair
@@ -38,7 +38,7 @@ function Plugboard(props) {
         })
       }
       </div>
-      <div style={styles.board}>
+      <div className={styles.board}>
       {
         numsBottom.map((element, index) => {          
           return <PlugboardPair
