@@ -24,7 +24,7 @@ function Plugboard(props) {
     {
       numsTop.map((element, index) => {
         return <PlugboardPair
-          key={index}
+        key={"plugboard_pair_top_"+index}
           theme={props.theme}
           num={element}
           possible={getPossible()}
@@ -40,12 +40,12 @@ function Plugboard(props) {
     {
       numsBottom.map((element, index) => {          
         return <PlugboardPair
-          key={index}
+          key={"plugboard_pair_bottom_"+index}
           theme={props.theme}
           num={element}
           possible={getPossible()} 
           pairKey={getKey(element)} 
-          pairValue={props.board[element][getKey(element)]} 
+          pairValue={props.board[element][getKey(element)]}
           onChangeKey={props.onChangeKey} 
           onChangeValue={props.onChangeValue}
         />

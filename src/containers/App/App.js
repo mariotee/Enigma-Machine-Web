@@ -112,7 +112,7 @@ class App extends React.Component {
       <header className="bg-primary p-3">
         <h2>Enigma M3 Web</h2>
       </header>
-      <main className="my-2 px-4 py-2">
+      <main className="my-2 px-2 py-2">
         <RotorMenu
           rotorChoices={[rotor1,rotor2,rotor3]}
           rotorStarts={[start1,start2,start3]}

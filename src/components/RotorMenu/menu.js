@@ -13,13 +13,13 @@ function RotorMenu(props) {
   return <div>
     <h4>Settings</h4>
     <div className="d-flex justify-content-between">
-      <label className="mx-4 w-100">{'Rotor 1'}</label>
-      <label className="mx-4 w-100">{'Rotor 2'}</label>
-      <label className="mx-4 w-100">{'Rotor 3'}</label>
+      <label className="mx-2 w-100">{'Rotor 1'}</label>
+      <label className="mx-2 w-100">{'Rotor 2'}</label>
+      <label className="mx-2 w-100">{'Rotor 3'}</label>
     </div>
     <div className="d-flex justify-content-between">
       <select
-        className="form-control mx-4 text-center"
+        className="form-control mx-2 text-center"
         name="rotor1"
         value={rotor1}
         onChange={event=>props.onSelectChange(event.target.name,event.target.value)}
@@ -27,7 +27,7 @@ function RotorMenu(props) {
         {RotorOptions}
       </select>
       <select
-        className="form-control mx-4 text-center"
+        className="form-control mx-2 text-center"
         name="rotor2"
         value={rotor2}
         onChange={event=>props.onSelectChange(event.target.name,event.target.value)}
@@ -35,7 +35,7 @@ function RotorMenu(props) {
         {RotorOptions}
       </select>      
       <select            
-        className="form-control mx-4 text-center"        
+        className="form-control mx-2 text-center"        
         name="rotor3"
         value={rotor3}
         onChange={event=>props.onSelectChange(event.target.name,event.target.value)}
@@ -44,13 +44,13 @@ function RotorMenu(props) {
       </select>    
     </div>            
     <div className="d-flex justify-content-between">
-      <label className="mx-4 w-100">{'Start 1'}</label>
-      <label className="mx-4 w-100">{'Start 2'}</label>
-      <label className="mx-4 w-100">{'Start 3'}</label>
+      <label className="mx-2 w-100">{'Start 1'}</label>
+      <label className="mx-2 w-100">{'Start 2'}</label>
+      <label className="mx-2 w-100">{'Start 3'}</label>
     </div>    
     <div className="d-flex justify-content-between">
       <select            
-        className="form-control mx-4 text-center"        
+        className="form-control mx-2 text-center"        
         name="start1"
         value={start1}
         onChange={event=>props.onSelectChange(event.target.name,event.target.value)}
@@ -58,7 +58,7 @@ function RotorMenu(props) {
         {StartOptions}
       </select>      
       <select            
-        className="form-control mx-4 text-center"        
+        className="form-control mx-2 text-center"        
         name="start2"
         value={start2}
         onChange={event=>props.onSelectChange(event.target.name,event.target.value)}
@@ -66,7 +66,7 @@ function RotorMenu(props) {
         {StartOptions}
       </select>      
       <select            
-        className="form-control mx-4 text-center"        
+        className="form-control mx-2 text-center"        
         name="start3"
         value={start3}
         onChange={event=>props.onSelectChange(event.target.name,event.target.value)}
