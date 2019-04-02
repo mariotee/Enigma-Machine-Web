@@ -3,21 +3,27 @@
 }
 
 body {
-  background-color: #222222;
-  background-image: url("assets/enigma.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-color: #202020;
   margin: 0;
   padding: 0;
   font-family: var(--font);
 }
 
-main.app-main {  
-  max-width: 800px;
+div.app-root {    
+  max-width: 720px;
+  background-image: url("assets/enigma.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;    
+  opacity: 0.95;
+  overflow: hidden;
 }
 
 textarea.message-area {  
   display: inline;
-  max-width: 330px;
+  max-width: 320px;
+}
+
+textarea, select {
+  opacity: .90;
 }

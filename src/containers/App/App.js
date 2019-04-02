@@ -106,13 +106,13 @@ class App extends React.Component {
 
     const { rotor1,rotor2,rotor3,start1,start2,start3,reflektor,plugboard } = this.state;
     const plugboardInput = makePlugboard(plugboard);
-    const crypto = new Enigma(rotor1,rotor2,rotor3,start1,start2,start3,"B",plugboardInput);            
+    const crypto = new Enigma(rotor1,rotor2,rotor3,start1,start2,start3,"B",plugboardInput);
 
-    return <div className="d-flex flex-column text-white text-center">
-      <header className="bg-primary w-100 p-3">
-        <h2 className="">Enigma M3 Web</h2>
+    return <div className="app-root rounded mx-auto my-2 text-white text-center">
+      <header className="bg-primary p-3">
+        <h2>Enigma M3 Web</h2>
       </header>
-      <main className="mx-auto my-2 px-4 app-main">
+      <main className="my-2 px-4 py-2">
         <RotorMenu
           rotorChoices={[rotor1,rotor2,rotor3]}
           rotorStarts={[start1,start2,start3]}
@@ -137,4 +137,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default App
