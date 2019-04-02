@@ -1,24 +1,21 @@
 import React from 'react'
-import styles from './style.module.css'
 
-export default function(props) {  
-  return <div className={styles.root}>
+export default function(props) {
+  return <div className="my-4">
     <textarea
-      className={styles.input}
-      dark={props.theme === "dark" ? "true" : "false"}
+      className="form-control w-100 mx-1 my-1 message-area"
       placeholder="your message"
       autoComplete="off"
-      rows={8}
-      value={props.message} 
+      rows={6}
+      value={props.message}
       onChange={event=>props.inputChange(event.target.value,props.crypto)}
     />
     <textarea
-      className={styles.input}
-      dark={props.theme === "dark" ? "true" : "false"}
+      className="form-control w-100 mx-1 my-1 message-area"
       readOnly={true}
       placeholder="encoded message"
       autoComplete="off"
-      rows={8}
+      rows={6}
       value={props.encoded}      
     />
   </div>

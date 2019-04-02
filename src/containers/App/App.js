@@ -4,14 +4,12 @@ import RotorMenu from "components/RotorMenu"
 import MessageArea from "components/MessageArea"
 import Instructions from "components/Instructions"
 import Plugboard from "components/Plugboard"
-import Enigma from "classes/Enigma"
-
-import styles from "./style.module.css"
+import Enigma from "classes/Enigma.js"
 
 const DECIMAL = 10;
 
 class App extends React.Component {
-  state = {    
+  state = {
     rotor1: 1,
     rotor2: 2,
     rotor3: 3,
@@ -35,23 +33,7 @@ class App extends React.Component {
     possible: ["u","v","w","x","y","z"],
     message: "",
     encoded: "",
-  }
-
-  componentDidMount() {
-    this.setState({
-      theme: localStorage.theme || "light",
-    })    
-  }
-
-  toggleTheme = () => {  
-    this.setState((prevState) => {
-      const themeToBe = prevState.theme === "light" ? "dark" : "light"
-
-      localStorage.theme = themeToBe
-
-      return { theme:  themeToBe }
-    })
-  }
+  }  
 
   onMessageWrite = (input,crypto) => {
     this.setState({
@@ -110,7 +92,7 @@ class App extends React.Component {
     })
   }
 
-  render() {
+  render() {        
     const makePlugboard = (plugboard) => {
       let board = {};
       for(const element of plugboard) {
@@ -126,41 +108,31 @@ class App extends React.Component {
     const plugboardInput = makePlugboard(plugboard);
     const crypto = new Enigma(rotor1,rotor2,rotor3,start1,start2,start3,"B",plugboardInput);            
 
-    return <div className={styles.root} dark={this.state.theme === "dark" ? "true" : "false"}>
-      <div className={styles.header}>
-        <h1 className={styles.title}>Enigma M3 Web</h1>        
-      </div>
-      <div className={styles.content}>
+    return <div className="d-flex flex-column text-white text-center">
+      <header className="bg-primary w-100 p-3">
+        <h2 className="">Enigma M3 Web</h2>
+      </header>
+      <main className="mx-auto my-2 px-4 app-main">
         <RotorMenu
-          theme={this.state.theme}
           rotorChoices={[rotor1,rotor2,rotor3]}
           rotorStarts={[start1,start2,start3]}
           reflektor={reflektor}
           onSelectChange={this.choiceChange}
         />
-        <Plugboard
-          theme={this.state.theme}
+        <Plugboard        
           board={this.state.plugboard}
           possible={this.state.possible}
           onChangeKey={this.plugboardChangeKey}
           onChangeValue={this.plugboardChangeValue}
         />
-        <MessageArea
-          theme={this.state.theme}
+        <MessageArea        
           inputChange={this.onMessageWrite}
           message={this.state.message}
           encoded={this.state.encoded}
           crypto={crypto}
         />                    
-        <Instructions theme={this.state.theme}/>
-      </div>
-      <footer>
-        <button className={styles.themetoggle}
-        dark={this.state.theme === "dark" ? "true" : "false"}
-        onClick={this.toggleTheme}>
-          Toggle {this.state.theme === "dark" ? "Light" : "Dark"} Theme
-        </button>
-      </footer>
+        <Instructions/>
+      </main>      
     </div>
   }
 }

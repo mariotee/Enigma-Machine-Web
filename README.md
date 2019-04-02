@@ -1,2 +1,2 @@
 # Enigma-Machine-Web
-working on converting my enigma machine C++/Android app to a React web app
+converted my enigma machine C++ console app to a React web app

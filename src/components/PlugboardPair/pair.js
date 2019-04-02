@@ -1,14 +1,11 @@
 import React from 'react'
 
-import styles from './style.module.css'
-
 function PlugboardPair(props) {  
-    return <div className={styles.pair}>
+    return <div className="">
       Pair {props.num}
       <div>
         <select
-          className={styles.select}
-          dark={props.theme === "dark" ? "true" : "false"}
+          className="form-control my-1 text-center"
           value={props.pairKey}
           onChange={(e) => props.onChangeKey(e.target.value, props.num)}
         >
@@ -18,8 +15,7 @@ function PlugboardPair(props) {
       </div>
       <div>
         <select 
-          className={styles.select}
-          dark={props.theme === "dark" ? "true" : "false"}
+          className="form-control my-1 text-center"
           value={props.pairValue}
           onChange={(e) => props.onChangeValue(e.target.value, props.num)}
         >

@@ -3,58 +3,56 @@ import pt from 'prop-types'
 
 import PlugboardPair from 'components/PlugboardPair'
 
-import styles from './style.module.css'
-
 function Plugboard(props) {
-    const getPossible = () => {
-      return props.possible.map((element, index) => {
-        return <option key={index}>
-          {element}
-        </option>
+  const getPossible = () => {
+    return props.possible.map((element, index) => {
+      return <option key={index}>
+        {element}
+      </option>
+    })
+  }
+
+  const getKey = (num) => {
+    return Object.keys(props.board[num])[0]
+  }
+  const numsTop = [1,2,3,4,5]
+  const numsBottom = [6,7,8,9,10]
+
+  return <div className="">
+    <h4 className="my-2">Plugboard</h4>
+    <div className="d-flex justify-content-between">
+    {
+      numsTop.map((element, index) => {
+        return <PlugboardPair
+          key={index}
+          theme={props.theme}
+          num={element}
+          possible={getPossible()}
+          pairKey={getKey(element)} 
+          pairValue={props.board[element][getKey(element)]} 
+          onChangeKey={props.onChangeKey} 
+          onChangeValue={props.onChangeValue}
+        />
       })
     }
-
-    const getKey = (num) => {
-      return Object.keys(props.board[num])[0]
+    </div>
+    <div className="d-flex justify-content-between">
+    {
+      numsBottom.map((element, index) => {          
+        return <PlugboardPair
+          key={index}
+          theme={props.theme}
+          num={element}
+          possible={getPossible()} 
+          pairKey={getKey(element)} 
+          pairValue={props.board[element][getKey(element)]} 
+          onChangeKey={props.onChangeKey} 
+          onChangeValue={props.onChangeValue}
+        />
+      })
     }
-    const numsTop = [1,2,3,4,5]
-    const numsBottom = [6,7,8,9,10]
-
-    return <div className={styles.root}>
-      <div className={styles.title}>Plugboard</div>
-      <div className={styles.board}>
-      {
-        numsTop.map((element, index) => {
-          return <PlugboardPair
-            key={index}
-            theme={props.theme}
-            num={element}
-            possible={getPossible()}
-            pairKey={getKey(element)} 
-            pairValue={props.board[element][getKey(element)]} 
-            onChangeKey={props.onChangeKey} 
-            onChangeValue={props.onChangeValue}
-          />
-        })
-      }
-      </div>
-      <div className={styles.board}>
-      {
-        numsBottom.map((element, index) => {          
-          return <PlugboardPair
-            key={index}
-            theme={props.theme}
-            num={element}
-            possible={getPossible()} 
-            pairKey={getKey(element)} 
-            pairValue={props.board[element][getKey(element)]} 
-            onChangeKey={props.onChangeKey} 
-            onChangeValue={props.onChangeValue}
-          />
-        })
-      }
-      </div>          
-    </div>  
+    </div>          
+  </div>  
 }
 
 Plugboard.propTypes = {

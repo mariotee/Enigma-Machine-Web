@@ -3,6 +3,7 @@
 }
 
 body {
+  background-color: #222222;
   background-image: url("assets/enigma.png");
   background-position: center;
   background-repeat: no-repeat;
@@ -12,10 +13,11 @@ body {
   font-family: var(--font);
 }
 
-input, textarea {
-  font-family: var(--font);  
+main.app-main {  
+  max-width: 800px;
 }
 
-select {
-  border: none;  
+textarea.message-area {  
+  display: inline;
+  max-width: 330px;
 }

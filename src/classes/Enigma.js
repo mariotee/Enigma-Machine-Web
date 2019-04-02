@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-import Rotor from './Rotor';
+import Rotor from './Rotor.js';
 
 const ASCII = 97;
 const ALPHA = 26;
