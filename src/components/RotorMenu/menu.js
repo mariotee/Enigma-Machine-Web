@@ -11,7 +11,7 @@ function RotorMenu(props) {
   const [start1,start2,start3] = rotorStarts;
 
   return <div>
-    <h4>Settings</h4>
+    <h4>Rotor Settings</h4>
     <div className="d-flex justify-content-between">
       <label className="mx-2 w-100">{'Rotor 1'}</label>
       <label className="mx-2 w-100">{'Rotor 2'}</label>
@@ -76,7 +76,7 @@ function RotorMenu(props) {
     </div>    
     <label className="mx-2 my-1">{'Reflektor'}</label>
     <select
-      className="form-control w-75 mx-auto"      
+      className="form-control w-75 mx-auto"
       name="reflektor"
       value={reflektor}
       onChange={event=>props.onSelectChange(event.target.name,event.target.value)}

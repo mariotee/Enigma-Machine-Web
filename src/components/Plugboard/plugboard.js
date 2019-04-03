@@ -18,7 +18,7 @@ function Plugboard(props) {
   const numsTop = [1,2,3,4,5]
   const numsBottom = [6,7,8,9,10]
 
-  return <div className="">
+  return <div className="my-4">
     <h4 className="my-2">Plugboard</h4>
     <div className="d-flex justify-content-between">
     {

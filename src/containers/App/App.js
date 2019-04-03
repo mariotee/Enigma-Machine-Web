@@ -92,7 +92,7 @@ class App extends React.Component {
     })
   }
 
-  render() {        
+  render() {
     const makePlugboard = (plugboard) => {
       let board = {};
       for(const element of plugboard) {
@@ -113,26 +113,26 @@ class App extends React.Component {
         <h2>Enigma M3 Web</h2>
       </header>
       <main className="my-2 px-2 py-2">
+        <MessageArea
+          inputChange={this.onMessageWrite}
+          message={this.state.message}
+          encoded={this.state.encoded}
+          crypto={crypto}
+        />
         <RotorMenu
           rotorChoices={[rotor1,rotor2,rotor3]}
           rotorStarts={[start1,start2,start3]}
           reflektor={reflektor}
           onSelectChange={this.choiceChange}
         />
-        <Plugboard        
+        <Plugboard
           board={this.state.plugboard}
           possible={this.state.possible}
           onChangeKey={this.plugboardChangeKey}
           onChangeValue={this.plugboardChangeValue}
-        />
-        <MessageArea        
-          inputChange={this.onMessageWrite}
-          message={this.state.message}
-          encoded={this.state.encoded}
-          crypto={crypto}
-        />                    
+        />        
         <Instructions/>
-      </main>      
+      </main>
     </div>
   }
 }

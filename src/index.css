@@ -11,18 +11,13 @@ body {
 
 div.app-root {    
   width: 95%;
-  max-width: 720px;
+  max-width: 800px;
   background-image: url("assets/enigma.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;    
   opacity: 0.95;
   overflow: hidden;
-}
-
-textarea.message-area {  
-  display: inline;
-  max-width: 320px;
 }
 
 textarea, select {
