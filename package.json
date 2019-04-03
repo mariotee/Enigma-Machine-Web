@@ -12,11 +12,13 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "predeploy": "npm run build",
-    "deploy": "git stage -A && git commit -m",
-    "postdeploy": "git push && gh-pages -d build",
+    "pregit": "npm run build",
+    "git": "git stage -A && git commit -m",
+    "postgit": "git push",
+    "deploy": "npm run git --",
+    "postdeploy": "gh-pages -d build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"    
+    "eject": "react-scripts eject"
   },
   "browserslist": [
     ">0.2%",
